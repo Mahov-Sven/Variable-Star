@@ -1,0 +1,51 @@
+#CONTENT_CONTAINER {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+}
+
+#SIDE_BAR {
+	flex-shrink: 0;
+	background-color: rgba(28, 31, 42, 1.0);
+	border: 2pt solid rgba(20, 25, 35, 1.0);
+	padding: 10pt;
+}
+
+.SideBarText {
+	font-size: 20pt;
+	color: white;
+}
+
+#ARROW{
+	border: solid white;
+	border-width: 0 3pt 3pt 0;
+	display: inline-block;
+	padding: 3pt;
+	transform: rotate(-45deg);
+}
+
+#STAR_FIELD {
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 1;
+}
+
+#STAR {
+	width: 400pt;
+	height: 400pt;
+	border-radius: 50%;
+	background-color: yellow;
+	border: 10pt solid orange;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	border-spacing: 0;
+	font-family: Verdana;
+}
