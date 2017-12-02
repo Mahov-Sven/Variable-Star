@@ -7,8 +7,13 @@
 
 #SIDE_BAR {
 	flex-shrink: 0;
+	flex-grow: 0;
 	background-color: rgba(28, 31, 42, 1.0);
-	border: 2pt solid rgba(20, 25, 35, 1.0);
+	display: flex;
+	flex-direction: row;
+}
+
+#SIDE_BAR_CONTENT {
 	padding: 10pt;
 }
 
@@ -17,25 +22,44 @@
 	color: white;
 }
 
-#ARROW{
+#SIDE_BAR_SLIDER {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-right: 2pt solid rgba(20, 25, 35, 1.0);
+}
+
+#SIDE_BAR_ARROW {}
+
+.Arrow {
 	border: solid white;
 	border-width: 0 3pt 3pt 0;
 	display: inline-block;
 	padding: 3pt;
+	transform: rotate(135deg);
+}
+
+.ArrowActive {
 	transform: rotate(-45deg);
 }
 
 #STAR_FIELD {
 	background-color: black;
-	width: 100%;
-	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-shrink: 1;
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
+}
+
+#STAR_LOCATION {
+	width: 0;
+	height: 0;
 }
 
 #STAR {
+	position: absolute;
 	width: 400pt;
 	height: 400pt;
 	border-radius: 50%;
@@ -43,7 +67,11 @@
 	border: 10pt solid orange;
 }
 
-*{
+html {
+	overflow: hidden;
+}
+
+* {
 	margin: 0;
 	padding: 0;
 	border-spacing: 0;
