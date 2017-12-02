@@ -11,36 +11,86 @@
 	background-color: rgba(28, 31, 42, 1.0);
 	display: flex;
 	flex-direction: row;
+	z-index: 1;
 }
 
 #SIDE_BAR_CONTENT {
 	padding: 10pt;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+}
+
+.Separator {
+	width: 100%;
+	border-top: 2pt solid rgba(0, 0, 0, 0.2);
+}
+
+.SideBarTitle {
+	font-size: 20pt;
+	color: rgba(170, 204, 255, 1.0);
+	text-align: center;
 }
 
 .SideBarText {
-	font-size: 20pt;
-	color: white;
+	font-size: 15pt;
+	color: rgba(170, 204, 255, 1.0);
+	float: left;
+	margin: 4pt;
+}
+
+.NumberInput {
+	border: 0;
+	background-color: rgba(10, 12, 17, 1.0);
+	color: rgba(170, 204, 255, 1.0);
+	font-size: 14pt;
+	padding: 1pt;
+	border-radius: 2pt;
+	float: right;
+	margin-left: 20pt;
+	width: 100pt;
 }
 
 #SIDE_BAR_SLIDER {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-right: 2pt solid rgba(20, 25, 35, 1.0);
+	border-right: 2pt solid rgba(10, 12, 17, 1.0);
+	padding: 5pt;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 #SIDE_BAR_ARROW {}
 
 .Arrow {
-	border: solid white;
+	border: solid rgba(170, 204, 255, 1.0);
 	border-width: 0 3pt 3pt 0;
 	display: inline-block;
 	padding: 3pt;
 	transform: rotate(135deg);
 }
 
-.ArrowActive {
+.ArrowRight {
 	transform: rotate(-45deg);
+}
+
+#PLAY_CONTAINER {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	width: 100%;
+	padding: 5pt 0 5pt 0;
+}
+
+.ActivePlayButton {
+	border-color: rgba(80, 170, 140, 1.0) !important;
+}
+
+.PauseButton {
+	border-left: 3pt solid rgba(170, 204, 255, 1.0);
+	border-right: 3pt solid rgba(170, 204, 255, 1.0);
+	padding: 5pt 2pt 5pt 2pt;
+	display: inline-block;
 }
 
 #STAR_FIELD {
@@ -51,6 +101,7 @@
 	flex-direction: row;
 	width: 100%;
 	height: 100%;
+	z-index: 0;
 }
 
 #STAR_LOCATION {
@@ -59,16 +110,24 @@
 }
 
 #STAR {
-	position: absolute;
+	position: relative;
 	width: 400pt;
 	height: 400pt;
 	border-radius: 50%;
 	background-color: yellow;
 	border: 10pt solid orange;
+	top: -200pt;
+	right: 200pt;
 }
 
 html {
 	overflow: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 * {
