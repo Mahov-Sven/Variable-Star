@@ -51,6 +51,35 @@
 	width: 100pt;
 }
 
+.CheckInputContainer {
+  float: right;
+  position: relative;
+  cursor: pointer;
+  font-size: 15pt;
+  user-select: none;
+}
+
+.CheckInputContainer input {
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  height: 15pt;
+  width: 15pt;
+  cursor: pointer;
+}
+
+.CheckInput {
+  float: right;
+  height: 15pt;
+  width: 15pt;
+  background-color: rgba(10, 12, 17, 1.0);
+  border-radius: 2pt;
+}
+
+.CheckInputContainer input:checked ~ .CheckInput {
+  background-color: rgba(21, 150, 101, 1.0);
+}
+
 #SIDE_BAR_SLIDER {
 	display: flex;
 	align-items: center;
@@ -72,6 +101,29 @@
 
 .ArrowRight {
 	transform: rotate(-45deg);
+}
+
+#GRAPH_CONTAINER {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#GRAPH {
+	width: 300pt;
+	height: 150pt;
+}
+
+#PERIOD_MEASURER {
+	position: absolute;
+	left: 20pt;
+	width: 100pt;
+	height: 150pt;
+	resize: horizontal;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-left: 2pt solid;
+	border-right: 2pt solid;
+	border-color: rgba(255, 255, 255, 0.5);
 }
 
 #PLAY_CONTAINER {
@@ -118,6 +170,7 @@
 	border: 10pt solid orange;
 	top: -200pt;
 	right: 200pt;
+	box-sizing: border-box;
 }
 
 html {

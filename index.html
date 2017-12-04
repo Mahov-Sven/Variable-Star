@@ -3,29 +3,62 @@
 <head>
 	<title>Variable Stars</title>
 	<link rel='stylesheet' type='text/css' href='files/styles/style.css'/>
+	<link rel='stylesheet' type='text/css' href='files/lib/jqueryUI/jquery-ui.min.css'/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="files/lib/jquery/jquery.js"></script>
+	<script type="text/javascript" src="files/lib/jqueryUI/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="files/scripts/main.js"></script>
 </head>
-<body">
+<body>
 	<div id="CONTENT_CONTAINER">
 		<div id="SIDE_BAR">
 			<div id="SIDE_BAR_CONTENT">
 				<div class="SideBarTitle">Initial Values</div>
 				<div class="Separator"></div>
-				<div class="SideBarText">Star Mass: <input class="NumberInput" type="number" value="1.0E31" min="0"></div>
-				<div class="SideBarText">Shell Mass: <input class="NumberInput" type="number" value="1.0E26" min="0"></div>
-				<div class="SideBarText">Pressure: <input class="NumberInput" type="number" value="5.6E4" min="0"></div>
-				<div class="SideBarText">Radius: <input class="NumberInput" type="number" value="1.7E10" min="0"></div>
-				<div class="SideBarText">∆T: <input class="NumberInput" type="number" value="2.0E4" min="0"></div>
+				<div class="SideBarText">Star Mass (kg): <input id="I_STAR_MASS" class="NumberInput" type="number" value="1.0E31" min="0"></div>
+				<div class="SideBarText">Shell Mass (kg): <input id="I_SHELL_MASS" class="NumberInput" type="number" value="1.0E26" min="0"></div>
+				<div class="SideBarText">Pressure (Pa): <input id="I_PRESSURE" class="NumberInput" type="number" value="5.6E4" min="0"></div>
+				<div class="SideBarText">Radius (m): <input id="I_RADIUS" class="NumberInput" type="number" value="1.7E10" min="0"></div>
+				<div class="SideBarText">∆T (s): <input id="I_DELTA_T" class="NumberInput" type="number" value="1.0E4" min="0"></div>
+				<div class="SideBarText">Specific Heat (γ): <input id="I_GAMMA" class="NumberInput" type="number" value="1.6666666" min="0"></div>
+				<div class="SideBarText">Temperature (K): <input id="I_TEMPURATURE" class="NumberInput" type="number" value="6000" min="0"></div>
 				
 				<div class="SideBarTitle">Data</div>
 				<div class="Separator"></div>
-				<div id="PLAY_CONTAINER">
-					<div class="Arrow"></div>
-					<div class="PauseButton ActivePlayButton"></div>
-					<div class="Arrow ArrowRight"></div>
+				
+				<div class="SideBarText">Velocity (m/s): <input id="D_VELOCITY" class="NumberInput" type="number" value="0" readonly></div>
+				<div class="SideBarText">Radius (m): <input id="D_RADIUS" class="NumberInput" type="number" value="0" min="0" readonly></div>
+				<div class="SideBarText">Pressure (Pa): <input id="D_PRESSURE" class="NumberInput" type="number" value="0" min="0" readonly></div>
+				<div class="SideBarText">Luminosity (W): <input id="D_LUMINOSITY" class="NumberInput" type="number" value="0" min="0" readonly></div>
+				<div class="SideBarText">Time (s): <input id="D_TIME" class="NumberInput" type="number" value="0" min="0" readonly></div>
+				
+				<div class="SideBarText" style="text-align: center;">Brightness vs. Time</div>
+				<div id="GRAPH_CONTAINER">
+					<canvas id="GRAPH"></canvas>
+					<div id="PERIOD_MEASURER"></div>
 				</div>
+				
+				<div id="PLAY_CONTAINER">
+					<div id="PLAY_BACKWARD" class="Arrow"></div>
+					<div style="width: 5pt;"></div>
+					<div id="PLAY_PAUSE" class="PauseButton ActivePlayButton"></div>
+					<div style="width: 5pt;"></div>
+					<div id="PLAY_FORWARD" class="Arrow ArrowRight"></div>
+				</div>
+				
+				<div class="SideBarText">Measured Period (s): <input id="D_PERIOD" class="NumberInput" type="number" value="0" min="0" readonly></div>
+				
+				<div class="SideBarTitle">Options</div>
+				<div class="Separator"></div>
+				
+				<div class="SideBarText">Star Border: 
+					<label class="CheckInputContainer">
+						<input id="I_BORDER" class="SideBarText" type="checkbox" checked>
+						<span class="CheckInput"></span>
+					</label>
+				</div>
+				<div class="SideBarText">Updates/Frame: <input id="I_UPS" class="NumberInput" type="number" value="1" min="1"></div>
+				<div class="SideBarText">Graph Time Width (∆T): <input id="I_GRAPH_WIDTH" class="NumberInput" type="number" value="1" min="1"></div>
 			</div>
 			<div id="SIDE_BAR_SLIDER">
 				<i id="SIDE_BAR_ARROW" class="Arrow"></i>
