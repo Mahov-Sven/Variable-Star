@@ -35,8 +35,10 @@ $(document).ready(() => {
 		}
 	}, false);
 	
-	$(window).resize(() => {
-		initCanvas();
+	$(window).resize((e) => {
+		if(e.target.id !== "PERIOD_MEASURER"){
+			initCanvas();
+		}
 	})
 	
 	$("#SIDE_BAR_SLIDER").click(() => {
@@ -252,7 +254,7 @@ $(document).ready(() => {
 		$("#STAR").css("opacity", `${0.5 * brightnessPercent(vert) + 0.5}`);
 	
 		const size = $("#PERIOD_MEASURER").width();
-		$("#D_PERIOD").val(displayNumber(physics.initial.deltaT * size * physics.graph.mul));
+		$("#D_PERIOD").val(displayNumber(physics.initial.deltaT * size * physics.graph.mul * ups));
 		
 		frameCounter += ups;
 		if(frameCounter > physics.graph.mul) frameCounter = 0;
